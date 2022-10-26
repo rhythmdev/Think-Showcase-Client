@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.logo-img{
+    width: 45px;
+    height: 45px;
+    margin-bottom: 0.5em;
+}
+.logo-txt{
+    font-size: 1.8rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right top, #3eb4dd, #00a8f5, #0096ff, #587cff, #a650fc);
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Lobster', cursive;
+    margin-left: 0.5em;
+   
+}
