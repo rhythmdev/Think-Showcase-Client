@@ -100,7 +100,7 @@ const Login = () => {
         </Button>
       </div>
 
-      <Form.Text className="text-danger fw-semibold ms-3">{error}</Form.Text>
+      <Form.Text className="text-danger mx-auto fw-semibold ms-3">{error}</Form.Text>
       <h6 className="text-center text-secondary my-3">Or Login With</h6>
       <hr className="w-50 mx-auto" />
       <div className="text-center">

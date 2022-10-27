@@ -110,7 +110,7 @@ const Register = () => {
         </Button>
       </div>
 
-      <Form.Text className="text-danger fw-semibold ms-3">{error}</Form.Text>
+      <Form.Text className="text-danger mx-auto fw-semibold ms-3">{error}</Form.Text>
 
       <h6 className="text-secondary text-center mt-2">
         Already have an account? Please{" "}

@@ -28,6 +28,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/courses",
+                loader: () => fetch("https://think-showcase-server.vercel.app/courses"),
                 element: <Courses/>
             },
             {
