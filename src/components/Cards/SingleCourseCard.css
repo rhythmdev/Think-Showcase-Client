@@ -1,0 +1,41 @@
+.card-container {
+  background-color: #ccc;
+  max-width: 350px;
+  background-color: #faf9f6;
+  /* color: #7863FC; */
+  border-radius: 10px;
+}
+.course-img {
+  width: 300px;
+  height: 250px;
+  background-color: #a7c7e7;
+  border-radius: 10px;
+}
+.name {
+  background-image: linear-gradient(
+    to right top,
+    #7f7fd5,
+    #7f87d9,
+    #7f8fdd,
+    #8097e1,
+    #829ee4,
+    #7ba8e9,
+    #75b2ed,
+    #73bbef,
+    #6cc8f0,
+    #70d5ee,
+    #7de0e9,
+    #91eae4
+  );
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.ins_img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
