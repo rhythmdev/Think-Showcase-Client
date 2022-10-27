@@ -30,9 +30,10 @@ const NavBar = () => {
     <div>
       <Navbar bg="light" expand="lg" className="shadow-sm">
         <Container>
-          <Navbar.Brand href="#home">
-            <img src={logo} className="logo-img" alt="logo" />
-
+          <Navbar.Brand>
+            <Link to="/">
+              <img src={logo} className="logo-img" alt="logo" />
+            </Link>
             <span className="logo-txt">Think Showcase</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

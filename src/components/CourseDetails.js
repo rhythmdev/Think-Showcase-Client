@@ -1,10 +1,10 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { BsStarFill } from "react-icons/bs";
 
-const CourseDetails = () => {
+const CourseDetails = ({ course }) => {
   const courseDetails = useLoaderData();
   const {
     name,
@@ -52,7 +52,9 @@ const CourseDetails = () => {
           </Card.Text>
           <Card.Text className="my-2">{description}</Card.Text>
 
-          <Button variant="outline-dark my-2">Get Premium Access</Button>
+          <Link to={`/courseDetails/${courseDetails.id}`}>
+            <Button variant="outline-dark my-2">Get Premium Access</Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>

@@ -7,11 +7,17 @@ import Courses from "../components/Courses/Courses";
 import FAQ from "../components/Faq";
 import Blog from "../components/Blog";
 import CourseDetails from "../components/CourseDetails";
+import CheckOut from "../components/CheckOut";
+import PrivateRoute from "../Routes/PrivateRoute/PrivateRoute"
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
       {
         path: "/",
         element: <Home />,
@@ -32,6 +38,11 @@ export const router = createBrowserRouter([
       {
         path: "/course/:id",
         element: <CourseDetails />,
+        loader: ({params}) => fetch(`https://think-showcase-server.vercel.app/course/${params.id}`),
+      },
+      {
+        path: "/courseDetails/:id",
+        element: <PrivateRoute><CheckOut /></PrivateRoute>,
         loader: ({params}) => fetch(`https://think-showcase-server.vercel.app/course/${params.id}`),
       },
       {
