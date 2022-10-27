@@ -7,7 +7,7 @@ import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const [accepted, setAccepted] = useState(false);
+  const [agree, setAgree] = useState(false);
   const { createUser, updateUserProfile, verifyEmail } =
     useContext(AuthContext);
 
@@ -33,7 +33,7 @@ const Register = () => {
 
       .catch((error) => {
         console.error(error);
-        setError(error.message);
+        setError(toast.error(error.message));
       });
   };
 
@@ -53,8 +53,8 @@ const Register = () => {
       .then(() => {})
       .catch((error) => console.error(error));
   };
-  const handelAccepted = (event) => {
-    setAccepted(event.target.checked);
+  const handelAgree = (event) => {
+    setAgree(event.target.checked);
   };
 
   return (
@@ -95,7 +95,7 @@ const Register = () => {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check
           type="checkbox"
-          onClick={handelAccepted}
+          onClick={handelAgree}
           label="Accept Terms and Conditions"
         />
       </Form.Group>
@@ -104,7 +104,7 @@ const Register = () => {
           variant="outline-light"
           className="w-50"
           type="submit"
-          disabled={!accepted}
+          disabled={!agree}
         >
           Register
         </Button>
@@ -113,7 +113,7 @@ const Register = () => {
       <Form.Text className="text-danger fw-semibold ms-3">{error}</Form.Text>
 
       <h6 className="text-secondary text-center mt-2">
-        Don't have an account? Please{" "}
+        Already have an account? Please{" "}
         <Link className="text-secondary" to="/login">
           Login
         </Link>
