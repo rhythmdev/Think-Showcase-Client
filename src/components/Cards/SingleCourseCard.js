@@ -2,12 +2,13 @@ import React from "react";
 import "./SingleCourseCard.css";
 import { BsStarFill } from "react-icons/bs";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const SingleCourseCard = ({ course }) => {
   const { name, image, instructor, ins_img, rating, details } = course;
   return (
     <div>
-      <div className="card-container shadow p-3">
+      <div className="card-container shadow p-2">
         <img className="course-img" src={image} alt="" />
         <h6 className="text-center name my-2">{name}</h6>
         <div className="d-flex justify-content-between align-items-center ">
@@ -24,7 +25,12 @@ const SingleCourseCard = ({ course }) => {
           <p>{details}</p>
         </div>
         <div className="d-flex justify-content-center align-items-center py-2">
-          <Button variant="outline-dark w-50">Learn More</Button>
+            <Link to={`/course/${course.id}`}>
+
+            <Button variant="outline-dark ">Learn More</Button>
+           </Link>
+           
+         
         </div>
       </div>
     </div>
