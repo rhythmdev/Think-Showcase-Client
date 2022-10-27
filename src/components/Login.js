@@ -5,9 +5,11 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+
 const Login = () => {
   const [error, setError] = useState("");
-  const { signIn, setLoading, signInWithGoogle } = useContext(AuthContext);
+  const { signIn, setLoading, signInWithGoogle, signInWithGithub, setUser } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -45,14 +47,26 @@ const Login = () => {
   // google sign in
   const handelGoogleSignIn = () => {
     signInWithGoogle()
-    .then(result => {
-        const user  =  result.user;
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        toast.success(`Welcome ${user.displayName}`);
         navigate(from, { replace: true });
-
-    })
-    .catch(error => toast.error(error.message))
-  }
-
+      })
+      .catch((error) => toast.error(error.message));
+  };
+  // github sign in
+  const handelGithubSignIn = () => {
+    signInWithGithub()
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        // console.log(user);
+        toast.success(`Welcome ${user.displayName}`);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => toast.error(error.message));
+  };
   return (
     <Form
       onSubmit={handelSubmit}
@@ -90,8 +104,8 @@ const Login = () => {
       <h6 className="text-center text-secondary my-3">Or Login With</h6>
       <hr className="w-50 mx-auto" />
       <div className="text-center">
-        <FaGoogle onClick={handelGoogleSignIn}/>
-        <FaGithub className="ms-2" />    
+        <FaGoogle onClick={handelGoogleSignIn} />
+        <FaGithub onClick={handelGithubSignIn} className="ms-2" />
       </div>
       <h6 className="text-secondary text-center mt-2">
         Don't have an account? Please{" "}

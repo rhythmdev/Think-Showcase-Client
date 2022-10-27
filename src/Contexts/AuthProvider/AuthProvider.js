@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   sendEmailVerification,
@@ -16,24 +17,19 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
-   
-    const googleProvider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-//   const providerLogin = (provider) => {
-//     setLoading(true);
-//     return signInWithPopup(auth, provider);
-//   };
-
-// create user
+  // create user
   const createUser = (email, password) => {
     setLoading(true);
-   
+
     return createUserWithEmailAndPassword(auth, email, password);
   };
-// login with email & password
+  // login with email & password
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -44,27 +40,32 @@ const AuthProvider = ({ children }) => {
   };
 
   // verify email
- const verifyEmail = () => {
-  return sendEmailVerification(auth.currentUser);
- }
+  const verifyEmail = () => {
+    return sendEmailVerification(auth.currentUser);
+  };
 
- // logout
+  // logout
   const logOut = () => {
     return signOut(auth);
   };
 
   // google sign in
   const signInWithGoogle = () => {
-    setLoading(true)
-    return signInWithPopup(auth, googleProvider)
-  }
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+  //github sign in
+  const signInWithGithub = () => {
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(" state change", currentUser);
-     if(currentUser === null || currentUser.emailVerified){
-      setUser(currentUser);
-     }
+      if (currentUser === null || currentUser.emailVerified) {
+        setUser(currentUser);
+      }
       setLoading(false);
     });
     return () => {
@@ -74,14 +75,16 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    setUser,
     signInWithGoogle,
+    signInWithGithub,
     logOut,
     createUser,
     signIn,
     loading,
     setLoading,
     updateUserProfile,
-    verifyEmail
+    verifyEmail,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

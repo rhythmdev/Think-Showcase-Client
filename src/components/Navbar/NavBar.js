@@ -72,7 +72,7 @@ const NavBar = () => {
                 )}
               </Nav.Link>
               <>
-                {user?.photoURL ? (
+                {user?.uid ? (
                   <Tippy
                     content={
                       user?.displayName ? user.displayName : "No name found"
