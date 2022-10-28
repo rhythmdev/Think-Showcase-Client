@@ -9,10 +9,12 @@ import Blog from "../components/Blog";
 import CourseDetails from "../components/CourseDetails";
 import CheckOut from "../components/Checkout/CheckOut";
 import PrivateRoute from "../Routes/PrivateRoute/PrivateRoute";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",

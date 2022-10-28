@@ -1,10 +1,17 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-
+import { FaDownload } from "react-icons/fa";
 import Card from "react-bootstrap/Card";
 import { BsStarFill } from "react-icons/bs";
+import PdfFile from "./Pdf/PdfFile";
+import { useRef } from "react";
+import Pdf from "react-to-pdf";
+
+
 
 const CourseDetails = ({ course }) => {
+
+  const detailsRef = useRef();
   const courseDetails = useLoaderData();
   const {
     name,
@@ -18,7 +25,13 @@ const CourseDetails = ({ course }) => {
   } = courseDetails;
 
   return (
+   
     <div className="container my-5">
+      <Pdf targetRef={detailsRef} filename="code-example.pdf">
+{({ toPdf }) => <button onClick={toPdf}> <PdfFile /></button>}
+</Pdf>
+       <h5 className="text-center my-4">Get the course details <FaDownload ref={detailsRef} /></h5>
+      
       <Card className="text-center  mx-auto" style={{ maxWidth: "500px" }}>
         <Card.Header>
           <img
@@ -62,8 +75,11 @@ const CourseDetails = ({ course }) => {
           </Link>
         </Card.Body>
       </Card>
+     
     </div>
+  
   );
+
 };
 
 export default CourseDetails;
