@@ -1,6 +1,5 @@
 import React from "react";
 import { useRouteError } from "react-router-dom";
-import "./Errorpage.css";
 import Lottie from "lottie-react";
 import error404 from "../../assets/error404.json";
 
