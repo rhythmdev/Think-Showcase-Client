@@ -10,7 +10,7 @@ const ErrorPage = () => {
       <div className="container">
         <div className="row">
           <div className="col">
-            <div className="error-anime w-50 h-50 mx-auto">
+            <div className=" w-50 h-50 mx-auto">
               <Lottie animationData={error404} loop={true}></Lottie>
             </div>
           </div>

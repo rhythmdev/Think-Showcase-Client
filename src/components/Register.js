@@ -60,7 +60,7 @@ const Register = () => {
   return (
     <Form
       onSubmit={handelSubmit}
-      className="mt-5 shadow p-5 rounded text-light" style={{backgroundColor: '#223C60'}}
+      className="mt-5 shadow p-5 rounded text-light container" style={{backgroundColor: '#223C60'}}
     >
       <h3 className="text-center my-3">Please Register!</h3>
       <hr className="w-50 mx-auto" />

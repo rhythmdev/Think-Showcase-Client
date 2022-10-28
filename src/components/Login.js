@@ -70,7 +70,7 @@ const Login = () => {
   return (
     <Form
       onSubmit={handelSubmit}
-      className="mt-5 shadow p-5 rounded text-light"
+      className="mt-5 shadow p-5 rounded text-light container"
       style={{ backgroundColor: "#223C60" }}
     >
       <h3 className="text-center my-3">Please Login!</h3>

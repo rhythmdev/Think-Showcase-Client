@@ -27,9 +27,7 @@ const CourseDetails = ({ course }) => {
   return (
    
     <div className="container my-5">
-      <Pdf targetRef={detailsRef} filename="code-example.pdf">
-{({ toPdf }) => <button onClick={toPdf}> <PdfFile /></button>}
-</Pdf>
+     
        <h5 className="text-center my-4">Get the course details <FaDownload ref={detailsRef} /></h5>
       
       <Card className="text-center  mx-auto" style={{ maxWidth: "500px" }}>

@@ -2,7 +2,7 @@ import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 const Faq = () => {
   return (
-    <div container className="my-5">
+    <div  className="my-5 container">
       <h3 className="text-center">Frequently Asked Question</h3>
       <Accordion defaultActiveKey="0" flush className="mt-5  ">
         <Accordion.Item
