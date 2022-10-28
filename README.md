@@ -1,3 +1,15 @@
+## Think Showcase
+
+## Live Link
+https://think-showcase.web.app/     
+
+### Project Descriptions
+
+- **This project is for online course related**
+- **I build this website semi full stack.**
+- **I use Html5, Css3, Bootstrap 5, React, React Router, React icons, React-Hottoast,  etc.**
+- **For frontend is use react library with react bootstrap**
+-**For backend I use Express js**
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
