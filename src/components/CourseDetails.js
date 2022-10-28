@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+
 import Card from "react-bootstrap/Card";
 import { BsStarFill } from "react-icons/bs";
 
@@ -53,7 +53,12 @@ const CourseDetails = ({ course }) => {
           <Card.Text className="my-2">{description}</Card.Text>
 
           <Link to={`/courseDetails/${courseDetails.id}`}>
-            <Button variant="outline-dark my-2">Get Premium Access</Button>
+            <button
+              className="btn text-white mt-2"
+              style={{ backgroundColor: "#223C60" }}
+            >
+              Get Premium Access
+            </button>
           </Link>
         </Card.Body>
       </Card>

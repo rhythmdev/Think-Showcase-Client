@@ -26,18 +26,18 @@ const Login = () => {
         const user = result.user;
         // console.log(user)
         form.reset();
+        setUser(user);
+        toast.success(`Welcome ${user.displayName}`);
+
         setError("");
         if (user.emailVerified) {
           navigate(from, { replace: true });
         } else {
-          toast.error(
-            "Please verify your email address. Don't forget to check your mail spam folder"
-          );
+          toast.error("Please verify your email address.");
         }
       })
       .catch((error) => {
-        console.error(error);
-        setError(error.message);
+        setError(toast.error(error.message));
       })
       .finally(() => {
         setLoading(false);
@@ -70,7 +70,8 @@ const Login = () => {
   return (
     <Form
       onSubmit={handelSubmit}
-      className="mt-5 shadow p-5 rounded bg-dark text-light"
+      className="mt-5 shadow p-5 rounded text-light"
+      style={{ backgroundColor: "#223C60" }}
     >
       <h3 className="text-center my-3">Please Login!</h3>
       <hr className="w-50 mx-auto" />
@@ -95,12 +96,18 @@ const Login = () => {
         />
       </Form.Group>
       <div className="d-flex justify-content-center">
-        <Button variant="outline-light" className="w-50 " type="submit">
+        <Button
+          variant="outline-light"
+          className="w-50 fw-semibold"
+          type="submit"
+        >
           Login
         </Button>
       </div>
 
-      <Form.Text className="text-danger mx-auto fw-semibold ms-3">{error}</Form.Text>
+      <Form.Text className="text-danger mx-auto fw-semibold ms-3">
+        {error}
+      </Form.Text>
       <h6 className="text-center text-secondary my-3">Or Login With</h6>
       <hr className="w-50 mx-auto" />
       <div className="text-center">

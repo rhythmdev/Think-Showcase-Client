@@ -8,7 +8,7 @@ import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
 const Register = () => {
   const [error, setError] = useState("");
   const [agree, setAgree] = useState(false);
-  const { createUser, updateUserProfile, verifyEmail } =
+  const { createUser,  verifyEmail } =
     useContext(AuthContext);
 
   const handelSubmit = (event) => {
@@ -23,10 +23,10 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        // console.log(user)
+       
         setError("");
         form.reset();
-        handleUpdateUserProfile(name, photoURL);
+        // handleUpdateUserProfile(name, photoURL);
         handelEmailVerification();
         toast.success("Please verify your email address.");
       })
@@ -37,16 +37,16 @@ const Register = () => {
       });
   };
 
-  const handleUpdateUserProfile = (name, photoURL) => {
-    const profile = {
-      displayName: name,
-      photoURL: photoURL,
-    };
+  // const handleUpdateUserProfile = (name, photoURL) => {
+  //   const profile = {
+  //     displayName: name,
+  //     photoURL: photoURL,
+  //   };
 
-    updateUserProfile(profile)
-      .then(() => {})
-      .catch((error) => console.error(error));
-  };
+  //   updateUserProfile(profile)
+  //     .then(() => {})
+  //     .catch((error) => console.error(error));
+  // };
 
   const handelEmailVerification = () => {
     verifyEmail()
@@ -60,7 +60,7 @@ const Register = () => {
   return (
     <Form
       onSubmit={handelSubmit}
-      className="mt-5 shadow p-5 rounded bg-dark text-light"
+      className="mt-5 shadow p-5 rounded text-light" style={{backgroundColor: '#223C60'}}
     >
       <h3 className="text-center my-3">Please Register!</h3>
       <hr className="w-50 mx-auto" />
@@ -114,7 +114,7 @@ const Register = () => {
 
       <h6 className="text-secondary text-center mt-2">
         Already have an account? Please{" "}
-        <Link className="text-secondary" to="/login">
+        <Link className="text-secondary"  to="/login">
           Login
         </Link>
       </h6>

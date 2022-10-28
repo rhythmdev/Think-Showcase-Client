@@ -6,7 +6,7 @@ import "./Courses.css";
 
 const Courses = () => {
   const courses = useLoaderData();
-  console.log(courses);
+
   return (
     <div>
       <Container>
@@ -15,15 +15,15 @@ const Courses = () => {
             <div className="mt-5 border p-4 shadow-sm rounded">
               {courses.map((course) => (
                 <div key={course.id}>
-                   <Link to={`/course/${course.id}`}>
-                   <Button
-                    variant="outline-dark btn-sm"
-                    className="my-2 fw-semibold"
-                  >
-                    {course.name}
-                  </Button>{" "}
-                   </Link>
-                 
+                  <Link to={`/course/${course.id}`}>
+                    <Button
+                      variant="btn-sm text-light"
+                      className="my-2 fw-semibold"
+                      style={{ backgroundColor: "#223C60" }}
+                    >
+                      {course.name}
+                    </Button>{" "}
+                  </Link>
                 </div>
               ))}
             </div>

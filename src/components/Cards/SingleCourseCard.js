@@ -1,7 +1,7 @@
 import React from "react";
 import "./SingleCourseCard.css";
 import { BsStarFill } from "react-icons/bs";
-import { Button } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
 
 const SingleCourseCard = ({ course }) => {
@@ -25,12 +25,14 @@ const SingleCourseCard = ({ course }) => {
           <p>{details}</p>
         </div>
         <div className="d-flex justify-content-center align-items-center py-2">
-            <Link to={`/course/${course.id}`}>
-
-            <Button variant="outline-dark ">Learn More</Button>
-           </Link>
-           
-         
+          <Link to={`/course/${course.id}`}>
+            <button
+              className="btn text-white"
+              style={{ backgroundColor: "#223C60" }}
+            >
+              Learn More
+            </button>
+          </Link>
         </div>
       </div>
     </div>
