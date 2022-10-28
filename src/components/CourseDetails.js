@@ -3,9 +3,9 @@ import { Link, useLoaderData } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
 import Card from "react-bootstrap/Card";
 import { BsStarFill } from "react-icons/bs";
-import PdfFile from "./Pdf/PdfFile";
+
 import { useRef } from "react";
-import Pdf from "react-to-pdf";
+
 
 
 

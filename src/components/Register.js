@@ -26,7 +26,7 @@ const Register = () => {
        
         setError("");
         form.reset();
-        // handleUpdateUserProfile(name, photoURL);
+      
         handelEmailVerification();
         toast.success("Please verify your email address.");
       })
@@ -37,16 +37,7 @@ const Register = () => {
       });
   };
 
-  // const handleUpdateUserProfile = (name, photoURL) => {
-  //   const profile = {
-  //     displayName: name,
-  //     photoURL: photoURL,
-  //   };
-
-  //   updateUserProfile(profile)
-  //     .then(() => {})
-  //     .catch((error) => console.error(error));
-  // };
+  
 
   const handelEmailVerification = () => {
     verifyEmail()
